@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from "@iconify/react";
+import { ArrowRight } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -22,8 +22,8 @@ const MyCard = ( {name} ) => {
       </CardContent>
       <CardFooter className=" justify-between" >
         <Badge variant="outline">Filckr</Badge>
-        <Button variant="secondary">
-          <Icon icon="material-symbols-light:chevron-right-rounded" />
+        <Button variant="default">
+          <ArrowRight/>
           去看看
         </Button>
       </CardFooter>

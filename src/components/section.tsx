@@ -19,12 +19,17 @@ import {
 import { Button } from "@/components/ui/button"
 import MyCard from "/src/components/my-card.tsx";
 
-const Section = ( {data} ) => {
+type SectionProps = {
+  customProp?: string;
+} & React.ComponentPropsWithRef<"section">;
+
+const Section = ({ customProp, children, ...rest }: SectionProps) => {
   return (
-    <div className="my-6 px-12">
-      
-    </div>
-  )
-}
+    <section className="w-full my-8 px-8 sm:my-12 sm:px-12" {...rest}>
+      {customProp} {children}
+    </section>
+  );
+};
+
 
 export default Section

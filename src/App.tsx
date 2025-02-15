@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
+import { Twitch, Github } from 'lucide-react';
 
-import Section from '/src/components/section.tsx'
-import { Separator } from '/src/components/ui/separator.tsx';
+import { Separator } from '@/components/ui/separator.tsx';
 import { Button } from "@/components/ui/button"
 import {
   Carousel,
@@ -11,101 +11,145 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
-import MyCard from "/src/components/my-card.tsx";
+import { Badge } from "@/components/ui/badge"
+import MyCard from "@/components/my-card.tsx";
+import Section from '@/components/section.tsx'
+import { ModeToggle } from "@/components/mode-toggle.tsx"
+import { ThemeProvider  } from "@/components/theme-provider"
 
-import data_links from "/src/data/links.json";
+import data_links from "@/data/links.json";
 
 
 function App() {
 
   return (
-    <div className="flex flex-col items-center">
-      {/* 大頭照、名、自界、個是連結 */}
-      <div className="w-full my-6">
-        <div className="w-full px-10 flex gap-4">
-          <img 
-            src="src/assets/head-pic.jpg" 
-            className="rounded-full w-32"
-          />
-          <div className="">
-            <h1>晴海徹</h1>
-            <p>這是一串自介的文字，現在還沒想好</p>
-            {/* 社群連結 */}
-            <div className="flex">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon icon="fa6-brands:x-twitter" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon icon="lucide:twitch" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon icon="si:youtube-line" height={29}/>
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon icon="mingcute:discord-line" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Icon icon="mynaui:brand-github" />
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div className="flex flex-col items-center overflow-hidden">
+        <div className="justify-center w-full lg:w-[1024px]">
+          {/* 大頭照、名、自界、個是連結 */}
+          <div className="w-full my-10 relative">
+            <div className="w-full px-4 sm:px-10 flex flex-col sm:flex-row items-center sm:items-start gap-8">
+              <div className=" m-auto">
+                <img 
+                  src="src/assets/head-pic.jpg" 
+                  className="rounded-full w-40 min-w-40 lg:w-40"
+                />
+              </div>
+              <div className="flex flex-col justify-center grow sm:justify-start text-center sm:text-left gap-2">
+                <h1>晴海徹</h1> 
+                <p>你好，我叫晴海徹，一隻憨到發二的哈士奇。</p>
+                <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-2">
+                  <Badge variant="default">Vtuber</Badge>
+                  <Badge variant="outline">攝影</Badge>
+                  <Badge variant="outline">UTAU</Badge>
+                </div>
+                {/* 社群連結 */}
+                <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+                  <Button variant="ghost" size="roundedIcon" className="">
+                    <Icon icon="fa6-brands:x-twitter" />
+                  </Button>
+                  <Button variant="ghost" size="roundedIcon" className="">
+                    <Twitch />
+                  </Button>
+                  <Button variant="ghost" size="roundedIcon" className="[&_svg]:size-6">
+                    <Icon icon="si:youtube-line" />
+                  </Button>
+                  <Button variant="ghost" size="roundedIcon" className="[&_svg]:size-6">
+                    <Icon icon="mingcute:discord-line" />
+                  </Button>
+                  <Button variant="ghost" size="roundedIcon" className="">
+                    <Github />
+                  </Button>
+                  
+                </div>
+              </div>
+
+            </div>
+            <ModeToggle className="absolute right-10 top-0"/>
+          </div>
+          
+
+          {/* Section 1: 設定圖 */}
+          <Section>
+            <h2 className="pb-3">設定圖/委託</h2>
+            <Carousel>
+              <CarouselContent>
+                <CarouselItem className="flex items-center justify-center">
+                  <img src="/src/assets/chra-setting-1.jpg" alt="Image" className="rounded-md object-cover" />
+                </CarouselItem>
+                <CarouselItem>
+                  <img src="src/assets/chra-setting-2.png" alt="Image" className="rounded-md object-cover" />
+                </CarouselItem>
+                <CarouselItem>
+                  <img src="src/assets/chra-setting-2.png" alt="Image" className="rounded-md object-cover" />
+                </CarouselItem>
+              </CarouselContent>
+            </Carousel>
+          </Section>
+
+
+          {/* Section 2: 相簿連結  */}
+          <Section>
+            <div className="flex items-center pb-3">
+              <h2 className="p-0">相簿連結</h2>
+              <Button variant="ghost" size="roundedIcon" className="ml-1">
+                <Icon icon="material-symbols:link-rounded" width="24px" />
               </Button>
             </div>
+            {/* TODO: 做RWD */}
+            <Carousel className="w-full">
+              <CarouselContent>
+                <CarouselItem className="sm:basis-1/2 " >
+                  <MyCard/>
+                </CarouselItem>
+                <CarouselItem className="sm:basis-1/2 " >
+                  <MyCard/>
+                </CarouselItem>
+                <CarouselItem className="sm:basis-1/2 " >
+                  <MyCard/>
+                </CarouselItem>
+              </CarouselContent>
+            </Carousel>
+            {/* <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <MyCard/>            
+              <MyCard/>
+              <MyCard/>
+            </div> */}
+          </Section>
+
+          {/* Section 3: UTAU */}
+          <Section>
+            <div className="flex items-center pb-3">
+              <h2 className="p-0">UTAU</h2>
+              <Button variant="ghost" size="roundedIcon" className="ml-1">
+                <Icon icon="material-symbols:link-rounded" width="24px" />
+              </Button>
+            </div>
+            {/* TODO: 做RWD */}
+            <AspectRatio ratio={16 / 9} className="rounded-xl overflow-hidden">
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/jNd10GluYZY?si=60QsYHWY2-jjRhlT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </AspectRatio>
+          </Section>
+          
+          {/* Section 4: 其他UTAU作品 */}
+          {/* <Section/> */}
+
+          
+        </div>
+        {/* Footer */}
+        <footer className="flex justify-center w-full border-grid border-t py-2 md:py-0">
+          <div className="w-full lg:w-[1024px] py-4 px-12 ">
+            <div className="text-balance text-center text-xs leading-loose text-muted-foreground md:text-left">
+              Made by{" "}
+              <a href="https://github.com/tooruche520" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">Tooruche</a>
+              {" "}in 2025.
+              View the source code on{" "}
+              <a href="https://github.com/tooruche520" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">Github</a>.
+            </div>
           </div>
-
-        </div>
-        <Separator className="w-full -mt-4  z-[-1]"/>
+        </footer>
       </div>
-      
-
-      {/* Section 1: 設定圖 */}
-      <div className="my-6 w-full overflow-hidden">
-        <h2 className="mx-12 pb-3">設定圖/委託</h2>
-        <Carousel className="mx-12">
-          <CarouselContent>
-            <CarouselItem className="flex items-center justify-center">
-              <img src="/src/assets/chra-setting-1.jpg" alt="Image" className="rounded-md object-cover" />
-            </CarouselItem>
-            <CarouselItem>
-              <img src="src/assets/chra-setting-2.png" alt="Image" className="rounded-md object-cover" />
-            </CarouselItem>
-          </CarouselContent>
-        </Carousel>
-      </div>
-
-
-      {/* Section 2: 相簿連結  */}
-      <section className="my-6 px-12">
-        <div className="flex items-center pb-3">
-          <h2 className="p-0">相簿連結</h2>
-          <Button variant="ghost" size="icon" className="rounded-full p-0">
-            <Icon icon="material-symbols:link-rounded" width="24px" />
-          </Button>
-        </div>
-        {/* TODO: 做RWD */}
-        <div className="flex gap-4">
-          <MyCard/>
-          {/* <MyCard/> */}
-        </div>
-      </section>
-
-      {/* Section 3: UTAU */}
-      <section className="my-6 px-12 w-full">
-        <div className="flex items-center pb-3">
-          <h2 className="p-0">UTAU</h2>
-          <Button variant="ghost" size="icon" className="rounded-full p-0">
-            <Icon icon="material-symbols:link-rounded" width="24px" />
-          </Button>
-        </div>
-        {/* TODO: 做RWD */}
-        <AspectRatio ratio={16 / 9} className="rounded-xl overflow-hidden">
-          <iframe className="w-full h-full" src="https://www.youtube.com/embed/jNd10GluYZY?si=60QsYHWY2-jjRhlT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </AspectRatio>
-      </section>
-      
-      {/* Section 4: 其他UTAU作品 */}
-      {/* <Section/> */}
-
-      {/* Footer */}
-
-    </div>
+    </ThemeProvider>
   )
 }
 
