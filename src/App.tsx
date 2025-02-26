@@ -1,14 +1,11 @@
 import { Icon } from "@iconify/react";
 import { Twitch, Github } from 'lucide-react';
 
-import { Separator } from '@/components/ui/separator.tsx';
 import { Button } from "@/components/ui/button"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Badge } from "@/components/ui/badge"
@@ -17,10 +14,21 @@ import Section from '@/components/section.tsx'
 import { ModeToggle } from "@/components/mode-toggle.tsx"
 import { ThemeProvider  } from "@/components/theme-provider"
 
-import data_links from "@/data/links.json";
+import headPic from "@/assets/head-pic.jpg";
+import chraSetting1 from "@/assets/chra-setting-1.jpg";
+import chraSetting2 from "@/assets/chra-setting-2.png";
+import albumsLink from "@/data/albums-links.json";
 
+
+interface Links {
+  title: string,
+  description:string,
+  url: string,
+  image: string,
+}
 
 function App() {
+  const albumsData: Links[] = albumsLink;
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -31,7 +39,7 @@ function App() {
             <div className="w-full px-4 sm:px-10 flex flex-col sm:flex-row items-center sm:items-start gap-8">
               <div className=" m-auto">
                 <img 
-                  src="src/assets/head-pic.jpg" 
+                  src={headPic}
                   className="rounded-full w-40 min-w-40 lg:w-40"
                 />
               </div>
@@ -75,13 +83,10 @@ function App() {
             <Carousel>
               <CarouselContent>
                 <CarouselItem className="flex items-center justify-center">
-                  <img src="/src/assets/chra-setting-1.jpg" alt="Image" className="rounded-md object-cover" />
+                  <img src={chraSetting1} alt="Image" className="rounded-md object-cover" />
                 </CarouselItem>
                 <CarouselItem>
-                  <img src="src/assets/chra-setting-2.png" alt="Image" className="rounded-md object-cover" />
-                </CarouselItem>
-                <CarouselItem>
-                  <img src="src/assets/chra-setting-2.png" alt="Image" className="rounded-md object-cover" />
+                  <img src={chraSetting2} alt="Image" className="rounded-md object-cover" />
                 </CarouselItem>
               </CarouselContent>
             </Carousel>
@@ -92,43 +97,53 @@ function App() {
           <Section>
             <div className="flex items-center pb-3">
               <h2 className="p-0">相簿連結</h2>
-              <Button variant="ghost" size="roundedIcon" className="ml-1">
+              <Button variant="ghost" size="roundedIcon" className="ml-1"
+                onClick={() => window.open("https://www.flickr.com/people/tooruche520/", '_blank')}
+              >
                 <Icon icon="material-symbols:link-rounded" width="24px" />
               </Button>
             </div>
             {/* TODO: 做RWD */}
-            <Carousel className="w-full">
+            <Carousel className="w-full sm:hidden">
               <CarouselContent>
-                <CarouselItem className="sm:basis-1/2 " >
-                  <MyCard/>
-                </CarouselItem>
-                <CarouselItem className="sm:basis-1/2 " >
-                  <MyCard/>
-                </CarouselItem>
-                <CarouselItem className="sm:basis-1/2 " >
-                  <MyCard/>
-                </CarouselItem>
+                {albumsData.map((link, index) => (
+                  <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3">
+                    <MyCard link={link}/>
+                  </CarouselItem>
+                ))}
               </CarouselContent>
             </Carousel>
-            {/* <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <MyCard/>            
-              <MyCard/>
-              <MyCard/>
-            </div> */}
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {albumsData.map((link, index) => (
+                <MyCard key={index} link={link} className="sm:basis-1/2 lg:basis-1/3"/>
+              ))}
+            </div>
           </Section>
 
           {/* Section 3: UTAU */}
           <Section>
             <div className="flex items-center pb-3">
               <h2 className="p-0">UTAU</h2>
-              <Button variant="ghost" size="roundedIcon" className="ml-1">
+              <Button variant="ghost" size="roundedIcon" className="ml-1"
+                onClick={() => window.open("https://youtube.com/playlist?list=PLbt8MdrgHfj3AqM5CDq9nL7LeMsoDpm4J", '_blank')}
+              >
                 <Icon icon="material-symbols:link-rounded" width="24px" />
               </Button>
             </div>
             {/* TODO: 做RWD */}
             <AspectRatio ratio={16 / 9} className="rounded-xl overflow-hidden">
-              <iframe className="w-full h-full" src="https://www.youtube.com/embed/jNd10GluYZY?si=60QsYHWY2-jjRhlT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/jNd10GluYZY?si=60QsYHWY2-jjRhlT" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </AspectRatio>
+            <div className="flex mt-4">
+              <Button 
+                variant="link" 
+                className="ml-auto" 
+                onClick={() => window.open("https://youtube.com/playlist?list=PLbt8MdrgHfj3AqM5CDq9nL7LeMsoDpm4J", '_blank')}
+              >
+              <Icon icon="si:youtube-line" />
+                點我看播放清單
+              </Button>
+            </div>
           </Section>
           
           {/* Section 4: 其他UTAU作品 */}

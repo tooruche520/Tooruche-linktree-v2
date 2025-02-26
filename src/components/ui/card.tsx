@@ -78,8 +78,8 @@ CardFooter.displayName = "CardFooter"
 
 
 const CardImage = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
+  HTMLImageElement,
+  React.ImgHTMLAttributes<HTMLImageElement>
 >(({ className, ...props }, ref) => (
   <img
     ref={ref}

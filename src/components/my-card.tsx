@@ -1,28 +1,42 @@
-import React from 'react'
 import { ArrowRight } from 'lucide-react';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
-  CardHeader,
   CardTitle,
   CardImage,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
-const MyCard = ( {name} ) => {
+interface Links {
+  title: string,
+  description:string,
+  url: string,
+  image: string,
+}
+
+interface MyCardProps {
+  link: Links;
+  className?: string;
+}
+
+const onButtonClick = (url: string) => {
+  console.log('Open link:', url)
+  window.open(url, '_blank');
+}
+
+const MyCard = ({ link }: MyCardProps) => {
   return (
     <Card>
-      <CardImage src="public/2022_furmosa.jpg" alt="" />
+      <CardImage src={link.image} />
       <CardContent>
-        <CardTitle>2024 獸無限</CardTitle>
-        <p>修完進軍營</p>
+        <CardTitle>{link.title}</CardTitle>
+        <p>{link.description}</p>
       </CardContent>
       <CardFooter className=" justify-between" >
         <Badge variant="outline">Filckr</Badge>
-        <Button variant="default">
+        <Button variant="default" onClick={() => onButtonClick(link.url)}>
           <ArrowRight/>
           去看看
         </Button>
