@@ -36,7 +36,7 @@ function App() {
         <div className="justify-center w-full lg:w-[1024px]">
           {/* 大頭照、名、自界、個是連結 */}
           <div className="w-full my-10 relative">
-            <div className="w-full px-4 sm:px-10 flex flex-col sm:flex-row items-center sm:items-start gap-8">
+            <div className="w-full px-8 sm:px-10 flex flex-col sm:flex-row items-center sm:items-start gap-8">
               <div className=" m-auto">
                 <img 
                   src={headPic}
@@ -45,9 +45,9 @@ function App() {
               </div>
               <div className="flex flex-col justify-center grow sm:justify-start text-center sm:text-left gap-2">
                 <h1>晴海徹</h1> 
-                <p>你好，我叫小徹，一隻憨到發二的哈士奇。會拍一些照片跟UTAU。</p>
+                <p>你好，我叫小徹，一隻憨到發二的哈士奇。<br/>會拍一些照片跟UTAU。</p>
                 <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-2">
-                  <Badge variant="default">Vtuber</Badge>
+                  <Badge variant="outline">Vtuber</Badge>
                   <Badge variant="outline">攝影</Badge>
                   <Badge variant="outline">UTAU</Badge>
                 </div>
