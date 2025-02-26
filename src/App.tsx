@@ -45,7 +45,7 @@ function App() {
               </div>
               <div className="flex flex-col justify-center grow sm:justify-start text-center sm:text-left gap-2">
                 <h1>晴海徹</h1> 
-                <p>你好，我叫晴海徹，一隻憨到發二的哈士奇。</p>
+                <p>你好，我叫小徹，一隻憨到發二的哈士奇。會拍一些照片跟UTAU。</p>
                 <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-2">
                   <Badge variant="default">Vtuber</Badge>
                   <Badge variant="outline">攝影</Badge>
@@ -53,19 +53,29 @@ function App() {
                 </div>
                 {/* 社群連結 */}
                 <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                  <Button variant="ghost" size="roundedIcon" className="">
+                  <Button variant="ghost" size="roundedIcon" className=""
+                    onClick={() => window.open("https://twitter.com/tooruche", '_blank')}
+                  >
                     <Icon icon="fa6-brands:x-twitter" />
                   </Button>
-                  <Button variant="ghost" size="roundedIcon" className="">
+                  <Button variant="ghost" size="roundedIcon" className=""
+                    onClick={() => window.open("https://www.twitch.tv/tooruche520", '_blank')}
+                  >
                     <Twitch />
                   </Button>
-                  <Button variant="ghost" size="roundedIcon" className="[&_svg]:size-6">
+                  <Button variant="ghost" size="roundedIcon" className="[&_svg]:size-6"
+                    onClick={() => window.open("https://www.youtube.com/@tooruche/featured", '_blank')}
+                  >
                     <Icon icon="si:youtube-line" />
                   </Button>
-                  <Button variant="ghost" size="roundedIcon" className="[&_svg]:size-6">
+                  <Button variant="ghost" size="roundedIcon" className="[&_svg]:size-6"
+                    onClick={() => window.open("https://discord.gg/HeywMdKNf5", '_blank')}
+                  >
                     <Icon icon="mingcute:discord-line" />
                   </Button>
-                  <Button variant="ghost" size="roundedIcon" className="">
+                  <Button variant="ghost" size="roundedIcon" className=""
+                    onClick={() => window.open("https://github.com/tooruche520", '_blank')}
+                  >
                     <Github />
                   </Button>
                   
