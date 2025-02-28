@@ -31,12 +31,12 @@ const MyCard = ({ link }: MyCardProps) => {
     <Card>
       <CardImage src={link.image} />
       <CardContent>
-        <CardTitle>{link.title}</CardTitle>
-        <p>{link.description}</p>
+        <CardTitle className="sm:text-2xl text-xl">{link.title}</CardTitle>
+        <div className="mt-1 sm:mt-2 sm:text-base text-sm opacity-80">{link.description}</div>
       </CardContent>
       <CardFooter className=" justify-between" >
         <Badge variant="outline">Filckr</Badge>
-        <Button variant="default" onClick={() => onButtonClick(link.url)}>
+        <Button variant="default" size="sm" onClick={() => onButtonClick(link.url)}>
           <ArrowRight/>
           去看看
         </Button>

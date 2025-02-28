@@ -36,7 +36,7 @@ function App() {
         <div className="justify-center w-full lg:w-[1024px]">
           {/* 大頭照、名、自界、個是連結 */}
           <div className="w-full my-10 relative">
-            <div className="w-full px-8 sm:px-10 flex flex-col sm:flex-row items-center sm:items-start gap-8">
+            <div className="w-full px-6 sm:px-10 flex flex-col sm:flex-row items-center sm:items-start gap-8">
               <div className=" m-auto">
                 <img 
                   src={headPic}
@@ -71,7 +71,7 @@ function App() {
                   <Button variant="ghost" size="roundedIcon" className="[&_svg]:size-6"
                     onClick={() => window.open("https://discord.gg/HeywMdKNf5", '_blank')}
                   >
-                    <Icon icon="mingcute:discord-line" />
+                    <Icon icon="radix-icons:discord-logo" />
                   </Button>
                   <Button variant="ghost" size="roundedIcon" className=""
                     onClick={() => window.open("https://github.com/tooruche520", '_blank')}
@@ -92,11 +92,11 @@ function App() {
             <h2 className="pb-3">設定圖/委託</h2>
             <Carousel>
               <CarouselContent>
-                <CarouselItem className="flex items-center justify-center">
-                  <img src={chraSetting1} alt="Image" className="rounded-md object-cover" />
-                </CarouselItem>
                 <CarouselItem>
                   <img src={chraSetting2} alt="Image" className="rounded-md object-cover" />
+                </CarouselItem>
+                <CarouselItem className="flex items-center justify-center">
+                  <img src={chraSetting1} alt="Image" className="rounded-md object-cover" />
                 </CarouselItem>
               </CarouselContent>
             </Carousel>
