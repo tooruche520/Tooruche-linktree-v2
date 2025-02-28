@@ -40,7 +40,7 @@ function App() {
               <div className=" m-auto">
                 <img 
                   src={headPic}
-                  className="rounded-full w-40 min-w-40 lg:w-40"
+                  className="rounded-full w-40 min-w-40 sm:w-44 md:w-48"
                 />
               </div>
               <div className="flex flex-col justify-center grow sm:justify-start text-center sm:text-left gap-2">
@@ -83,7 +83,7 @@ function App() {
               </div>
 
             </div>
-            <ModeToggle className="absolute right-10 top-0"/>
+            <ModeToggle className="absolute right-8 top-0"/>
           </div>
           
 
@@ -169,7 +169,7 @@ function App() {
               <a href="https://github.com/tooruche520" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">Tooruche</a>
               {" "}in 2025.
               View the source code on{" "}
-              <a href="https://github.com/tooruche520" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">Github</a>.
+              <a href="https://github.com/tooruche520/Tooruche-linktree-v2" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">Github</a>.
             </div>
           </div>
         </footer>

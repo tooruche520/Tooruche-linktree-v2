@@ -30,7 +30,7 @@ const MyCard = ({ link }: MyCardProps) => {
   return (
     <Card>
       <CardImage src={link.image} />
-      <CardContent>
+      <CardContent className="pb-4 sm:pb-6">
         <CardTitle className="sm:text-2xl text-xl">{link.title}</CardTitle>
         <div className="mt-1 sm:mt-2 sm:text-base text-sm opacity-80">{link.description}</div>
       </CardContent>
