@@ -17,6 +17,7 @@ import { ThemeProvider  } from "@/components/theme-provider"
 import headPic from "@/assets/head-pic.jpg";
 import chraSetting1 from "@/assets/chra-setting-1.jpg";
 import chraSetting2 from "@/assets/chra-setting-2.png";
+import commission from "@/assets/photo-commssion.png";
 import albumsLink from "@/data/albums-links.json";
 
 
@@ -89,7 +90,32 @@ function App() {
 
           {/* Section 1: 設定圖 */}
           <Section>
-            <h2 className="pb-3">設定圖/委託</h2>
+            <div className="flex items-center">
+              <h2 className="p-0">攝影委託</h2>
+              <Button variant="ghost" size="roundedIcon" className="ml-1"
+                onClick={() => window.open("https://photography-commission.tooruche.com/", '_blank')}
+              >
+                <Icon icon="material-symbols:link-rounded" width="24px" />
+              </Button>
+            </div>
+            <p className="pb-3">常駐攝影委託，歡迎詢問!!</p>
+            <img src={commission} alt="Image" className="rounded-md object-cover" />
+            <div className="flex mt-4">
+              <Button 
+                variant="link" 
+                className="ml-auto" 
+                onClick={() => window.open("https://photography-commission.tooruche.com/", '_blank')}
+              >
+                <Icon icon="si:north-east-escape-duotone" />
+                立即委託
+              </Button>
+            </div>
+          </Section>
+
+
+          {/* Section 2: 設定圖 */}
+          <Section>
+            <h2 className="pb-3">設定圖</h2>
             <Carousel>
               <CarouselContent>
                 <CarouselItem>
@@ -103,7 +129,7 @@ function App() {
           </Section>
 
 
-          {/* Section 2: 相簿連結  */}
+          {/* Section 3: 相簿連結  */}
           <Section>
             <div className="flex items-center pb-3">
               <h2 className="p-0">相簿連結</h2>
@@ -130,7 +156,7 @@ function App() {
             </div>
           </Section>
 
-          {/* Section 3: UTAU */}
+          {/* Section 4: UTAU */}
           <Section>
             <div className="flex items-center pb-3">
               <h2 className="p-0">UTAU</h2>
@@ -156,7 +182,7 @@ function App() {
             </div>
           </Section>
           
-          {/* Section 4: 其他UTAU作品 */}
+          {/* Section 5: 其他UTAU作品 */}
           {/* <Section/> */}
 
           
